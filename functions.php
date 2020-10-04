@@ -1,9 +1,10 @@
 <?php
+//Theme Features
 add_theme_support('custom-logo');
 add_theme_support('menus');
 add_theme_support('post-thumbnails');
 
-//Add custom post types
+//Custom post types
 function headlesswp_custom_post_types(){
   register_post_type('portfoilo',[
     'labels' =>[
@@ -21,7 +22,7 @@ function headlesswp_custom_post_types(){
 
 add_action( 'init', 'headlesswp_custom_post_types' );
 
-// remove toolbar items
+// Remove toolbar items
 function headlesswp_remove_toolbar_node($wp_admin_bar) {
 	
   $wp_admin_bar->remove_node('wp-logo');
@@ -33,29 +34,17 @@ function headlesswp_remove_toolbar_node($wp_admin_bar) {
 }
 add_action('admin_bar_menu', 'headlesswp_remove_toolbar_node', 999);
 
-/**
-* Check for Plugins
-* @see http://tgmpluginactivation.com/configuration/ for detailed documentation.
-*
-* @package    TGM-Plugin-Activation
-* @subpackage Example
-* @version    2.6.1 for parent theme Headless-Wordpress
-* @author     Thomas Griffin, Gary Jones, Juliette Reinders Folmer
-* @copyright  Copyright (c) 2011, Thomas Griffin
-* @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
-* @link       https://github.com/TGMPA/TGM-Plugin-Activation
-*/
 
+// Check for Plugins
+// see http://tgmpluginactivation.com/configuration/ for detailed documentation.
 require_once get_template_directory() . '/includes/class-tgm-plugin-activation.php';
 add_action( 'tgmpa_register', 'headlesswp_register_required_plugins' );
 function headlesswp_register_required_plugins() {
-	/*
-	 * Array of plugin arrays. Required keys are name and slug.
-	 * If the source is NOT from the .org repo, then source is also required.
-	 */
+
+	 // Array of plugin arrays. Required keys are name and slug.
+	 // If the source is NOT from the .org repo, then source is also required.
 	$plugins = [
 
-		// This is an example of how to include a plugin from the WordPress Plugin Repository.
 		[
 			'name'      => 'WP API Menus',
 			'slug'      => 'wp-api-menus',
@@ -85,10 +74,6 @@ function headlesswp_register_required_plugins() {
 		],
 	];
 
-	/*
-	 * Array of configuration settings. Amend each line as needed.
-	 * Only uncomment the strings in the config array if you want to customize the strings.
-	 */
 	$config = [
 		'id'           => 'headlesswordpress',     // Unique ID for hashing notices for multiple instances of TGMPA.
 		'default_path' => '',                      // Default absolute path to bundled plugins.
@@ -104,3 +89,5 @@ function headlesswp_register_required_plugins() {
 
 	tgmpa( $plugins, $config );
 }
+//Advanced Custom Fileds Import
+require_once get_template_directory() . '/includes/acf.php';
