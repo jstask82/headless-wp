@@ -67,6 +67,11 @@ function headlesswp_register_required_plugins() {
 			'required'  => true,
 		],
 		[
+			'name'      => 'ACF to REST API',
+			'slug'      => 'acf-to-rest-api',
+			'required'  => true,
+		],
+		[
 			'name'      => 'WP REST API favicon',
 			'slug'      => 'wp-rest-api-favicon',
 			'source'    => 'https://github.com/jstask82/wp-rest-api-favicon/archive/master.zip',
