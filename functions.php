@@ -62,6 +62,11 @@ function headlesswp_register_required_plugins() {
 			'required'  => true,
 		],
 		[
+			'name'      => 'Advanced Custom Fields',
+			'slug'      => 'advanced-custom-fields',
+			'required'  => true,
+		],
+		[
 			'name'      => 'WP REST API favicon',
 			'slug'      => 'wp-rest-api-favicon',
 			'source'    => 'https://github.com/jstask82/wp-rest-api-favicon/archive/master.zip',
