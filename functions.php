@@ -6,7 +6,7 @@ add_theme_support('post-thumbnails');
 
 //Custom post types
 function headlesswp_custom_post_types(){
-  register_post_type('portfoilo',[
+  register_post_type('portfolio',[
     'labels' =>[
       'name' => __('Portfolio'),
       'singular_name' => __('Portfolio')
